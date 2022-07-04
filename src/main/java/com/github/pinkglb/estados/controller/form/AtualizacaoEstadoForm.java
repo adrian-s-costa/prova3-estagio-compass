@@ -50,6 +50,7 @@ public class AtualizacaoEstadoForm {
 	}
 	public Estado atualizar(Long id, EstadoRepository estadoRepository) {
 		Estado estado = estadoRepository.getReferenceById(id);
+		
 		estado.setNome(this.nome);
 		estado.setRegiao(this.regiao);
 		estado.setPopulacao(this.populacao);

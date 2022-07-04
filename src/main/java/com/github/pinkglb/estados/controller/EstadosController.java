@@ -59,6 +59,25 @@ public class EstadosController {
 		return ResponseEntity.notFound().build();
 	}
 	
+	@GetMapping("/filtro/{filtro}")
+	@Transactional
+	public List<EstadoDto> lista(@PathVariable char filtro){
+		
+		if (filtro == 'r') {
+			List<Estado> estados = estadoRepository.carregarEstadosRegiao();
+			return EstadoDto.converter(estados);
+		}else if (filtro == 'p') {
+			List<Estado> estados = estadoRepository.carregarEstadosPopulacao();
+			return EstadoDto.converter(estados);
+		}else if (filtro == 'a') {
+			List<Estado> estados = estadoRepository.carregarEstadosArea();
+			return EstadoDto.converter(estados);
+		}else {
+			List<Estado> estados = estadoRepository.carregarEstados();
+			return EstadoDto.converter(estados);
+		}
+	}
+	
 	@PutMapping("/{id}")
 	@Transactional
 	public ResponseEntity<EstadoDto> atualizar(@PathVariable Long id, @RequestBody @Valid AtualizacaoEstadoForm form){

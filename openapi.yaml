@@ -1,0 +1,188 @@
+openapi: 3.0.1
+info:
+  title: API dos Estados
+  description: API para documentar, agrupar e filtrar das mais diferentes formas os estados brasileiros.
+
+
+    A API não se encontra hospedada no momento porém, ela pode ser encontrada no repositório https://github.com/pinkglb/prova3-estagio-compass e hospedada localmente.
+  version: 1.0.0
+  contact:
+    email: adrian.costa.pb@compasso.com.br
+  license:
+    name: "Lincença: GPLv3"
+    url: https://www.gnu.org/licenses/gpl-3.0.html
+  
+paths:
+  /api/states:
+    get:
+      summary: Retorna um array de objetos contendo todos os estados registrados no banco de dados.
+      responses:
+        200:
+          description: Sucesso
+          content:
+            application/json:
+              schema:
+                type: array
+                items: 
+                  type: object
+                  properties:
+                    id:
+                      type: integer
+                    nome: 
+                      type: string
+                    regiao:
+                      type: string
+                    populacao:
+                      type: integer
+                    capital:
+                      type: string
+                    area:
+                      type: number
+    post:
+      summary: Adiciona um novo estado ao banco de dados.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: integer
+                nome: 
+                  type: string
+                regiao:
+                  type: string
+                populacao:
+                  type: integer
+                capital:
+                  type: string
+                area:
+                  type: number
+      responses:
+        201:
+          description: "Sucesso"
+  /api/states/{id}:
+    parameters:
+    - name: id
+      in: path
+      schema:
+        type: integer
+      required: true
+    get:
+      summary: Retorna um único objeto, contendo um estado específico.
+      responses:
+        200:
+          description: Sucesso
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                    id:
+                      type: integer
+                    nome: 
+                      type: string
+                    regiao:
+                      type: string
+                    populacao:
+                      type: integer
+                    capital:
+                      type: string
+                    area:
+                      type: number
+        404:
+          description: Id inexistente no banco de dados.
+          content:
+            application/json:
+              example: "Not Found"
+    put:
+      summary: Atualiza um objeto de estado já existente no banco de dados.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: integer
+                nome: 
+                  type: string
+                regiao:
+                  type: string
+                populacao:
+                  type: integer
+                capital:
+                  type: string
+                area:
+                  type: number
+      responses:
+        201:
+          description: "Sucesso"
+        404:
+          description: Id inexistente no banco de dados.
+          content:
+            application/json:
+              example: "Not Found"
+    delete:
+      summary: Deleta o objeto que detém o id passado.
+      responses:
+        200:
+          description: Sucesso
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                    id:
+                      type: integer
+                    nome: 
+                      type: string
+                    regiao:
+                      type: string
+                    populacao:
+                      type: integer
+                    capital:
+                      type: string
+                    area:
+                      type: number
+        404:
+          description: Id inexistente no banco de dados
+          content:
+            application/json:
+              example: "Not Found"
+  /api/states/filtro/{filtro}:
+    parameters:
+    - name: filtro
+      in: path
+      schema:
+        type: string
+      required: true
+    get:
+      summary: Retorna o array de objetos ordenado da maneira desejada, 'r' para região, 'p' para maior população, 'a' para maior área.
+      responses:
+        200:
+          description: Sucesso
+          content:
+            application/json:
+              schema:
+                type: array
+                items: 
+                  type: object
+                  properties:
+                    id:
+                      type: integer
+                    nome: 
+                      type: string
+                    regiao:
+                      type: string
+                    populacao:
+                      type: integer
+                    capital:
+                      type: string
+                    area:
+                      type: number
+        404:
+          description: Filtro inexistente no banco de dados.
+          content:
+            application/json:
+              example: "Not Found"
