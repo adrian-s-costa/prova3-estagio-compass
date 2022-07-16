@@ -37,4 +37,4 @@ Api dos Estados utiliza as tecnologias:
 <img src='https://github.com/pinkglb/aaaa/blob/main/imagensReadme/delete.png?raw=true' alt="delete api/states{id}">
 
 ### GET /api/states/filtro/{filtro}
-<img src='https://github.com/pinkglb/aaaa/blob/main/imagensReadme/get.png?raw=true' alt="get /api/states/filtro/{filtro}">
+<img src='https://github.com/pinkglb/aaaa/blob/main/imagensReadme/getFiltro.png?raw=true' alt="get /api/states/filtro/{filtro}">
