@@ -8,7 +8,7 @@ A API não se encontra hospedada no momento porém, ela pode ser encontrada no r
 ## Features
 
 - Adicione o máximo de estados que você conseguir
-- Pode os agrupar com filtros e fazer pesquisas cm os dados
+- Pode os agrupar com filtros e fazer pesquisas com os dados
 - Um CRUD básico mas eficaz
 
 ## Tecnologias
