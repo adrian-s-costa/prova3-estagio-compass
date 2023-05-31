@@ -16,7 +16,7 @@ A API não se encontra hospedada no momento porém, ela pode ser encontrada no r
 Api dos Estados utiliza as tecnologias:
 
 - [JPA] - Interface  Java
-- [Hybernate] - Framework
+- [Hybernate] - ORM
 - [H2 Database] - Banco de dados 
 
 ## Rotas
